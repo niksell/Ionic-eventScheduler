@@ -1,0 +1,37 @@
+<ion-view title="TODAY'S RESERVATIONS " id="todayRes" class=" " ng-init="loadMoreToday()">
+  <ion-nav-buttons side="left">
+    <md-button class="button md-icon-button ion-nav-button-right" ng-click="myGoBack()" aria-label="Setting">
+          <i class="ion-arrow-left-c"></i>
+      </md-button>
+  </ion-nav-buttons>
+  <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+  <ion-content padding="true" class="has-header ion-content " overflow-scroll="false">
+
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list show-delete="false" can-swipe="true" ng-show="main">
+
+      <div ng-repeat="event in today  " class=" card " ng-click="onEventSelected(event)">
+
+        <div class="item {{event.machine}}">
+          <span>{{event.firstname}} {{event.lastname}}</span>&nbsp; <span class="right"><i class="icon ion-ios-telephone"></i>&nbsp;<a ng-href="tel: {{event.mobile}}">{{event.mobile}}</a></span>
+        </div>
+
+        <div class="item item-text-wrap">
+          <div class="item-row">
+            <div class="reservation-info"><i class="icon ion-calendar"></i>&nbsp;{{ event.date[0].date }}</div>
+            <div class="reservation-info center"><i class="icon ion-clock"></i> {{ event.Time[0].time | date:'short' }}</div>
+          </div>
+          <div class="item-row">
+            <div class="reservation-info"><i class="icon ion-location"></i>&nbsp;{{ event.description}}</div>
+            <div class="reservation-info center"><i class="icon ion-android-notifications-none"></i>&nbsp;</div>
+            <div class="reservation-info right"><i class="icon ion-flag"></i></div>
+          </div>
+        </div>
+
+      </div>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

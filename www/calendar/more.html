@@ -1,0 +1,42 @@
+<ion-view title="more" id="more" ng-init="initM()" class=" ">
+  <ion-nav-buttons side="left">
+    <button class="button" ng-click="myGoBack()"><i class="ion-arrow-left-c"></i> Back</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <ion-list show-edit="false" show-delete="false" can-swipe="true">
+      <ion-item class="item {{eventClone[0].machine}} ">
+
+
+          RESERVATION #{{ eventClone[0].id }}
+          <ion-option-button class="button-positive icon ion-edit" ng-click="editEvent(eventClone)"></ion-option-button>
+          <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteEvent(eventClone)"></ion-option-button>
+
+      </ion-item>
+    </ion-list>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-android-calendar"></i>{{eventClone[0].date}}
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-clock"></i>{{eventClone[0].time}}
+    </ion-item>
+    <ion-item class=" item-icon-left positive">
+      <i class="icon ion-android-contact"></i>&nbsp;{{ eventClone[0].seats }}
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-location"></i>&nbsp;{{ eventClone[0].area}}
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-android-notifications-none"></i>&nbsp;Table {{ eventClone[0].table_id}}
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-flag"></i>&nbsp;{{ eventClone[0].flag}}
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-ios-telephone-outline"></i> <a ng-href="tel: {{event[0].mobile}}">{{eventClone[0].mobile}}</a>
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-email"></i>&nbsp;{{ eventClone[0].email}}
+    </ion-item>
+
+  </ion-content>
+</ion-view>

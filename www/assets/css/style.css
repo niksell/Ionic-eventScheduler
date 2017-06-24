@@ -1,0 +1,277 @@
+/* IONIC CSS */
+  .platform-ios .manual-ios-statusbar-padding {
+    padding-top: 20px;
+  }
+
+  .manual-remove-top-padding {
+    padding-top: 0px;
+  }
+
+  .manual-remove-top-padding .scroll {
+    padding-top: 0px !important;
+  }
+  .wrapper{
+    background: url(../img/cover.jpg) no-repeat center;background-size:cover;opacity: 0.8;
+  }
+  .ion-content{
+    background: url("../img/Cool-Background-Wallpaper-Dekstop.jpg") center center / cover;
+  }
+  .ion-content1{
+    background: url("../img/chef-cover.jpg") center center / cover;
+  }
+  .has-headerNR {
+    top: 26px; }
+
+  ion-list.manual-list-fullwidth div.list,
+  .list.card.manual-card-fullwidth {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  ion-list.manual-list-fullwidth div.list> .item,
+  .list.card.manual-card-fullwidth> .item {
+    border-radius: 0px;
+    border-left: 0px;
+    border-right: 0px;
+  }
+  span.right{float:right}
+  div.item-row{
+    display: block;
+    float: none;
+  }
+  div.reservation-info{
+    width:33%;
+    font-size:16px;
+    float:left;
+    margin: 0 0 10px;
+    text-align: left;
+  }
+  div.reservation-info.long{
+    width:50%;
+  }
+  div.reservation-info.right{
+    text-align: right;
+  }
+  div.reservation-info.center{
+    text-align: center;
+  }
+
+  .first { background: orange; }
+  .last { background: blue; color: #fff;}
+
+
+  .booked{background-color:#3366cc;color:#fff}
+  .confirmed{background-color: #109618;color:#fff}
+  .arrived{background-color: #ff9900;color:#fff}
+  .seated{background-color: #990099;color:#fff}
+  .cancelled{background-color: #dc3912;color:#fff}
+  .noshow{background-color: #626262;color:#fff}
+  .list button.button {
+      width: 100%;
+      border-color: #e7e8e8;
+  }
+  .list button.button:hover {
+    background-color: #EE7D00
+    color: #EE7D00;
+    border-radius: 0;
+  }
+  .item .right a{
+    color: #fff;
+    text-decoration: none;
+  }
+  #events .icon{font-size:20px;}
+#profile .icon{font-size:20px;}
+#user .icon{font-size:20px;}
+#newres{
+  overflow:hidden !important;
+}
+#lock{
+  overflow:hidden !important;
+}
+#add{
+  overflow:hidden !important;
+}
+h2.title{
+  text-align: center;
+}
+h4.title{
+  text-align: center;
+}
+
+.card-purple .item{
+  background: purple;
+}
+
+.card-blue .item{
+  background: blue;
+}
+
+.card-green .item{
+  background: green;
+}
+/* General
+==================================*/
+h1 {
+    color: #fff;
+    text-shadow: 0 1px 0px #000;
+    font-size: 42px;
+}
+
+
+/* Utilities
+==================================*/
+.title-bordered {
+    border-top: solid 2px #bbb;
+    padding-top: 30px;
+}
+
+p {
+    color: #555;
+    margin: 0 0 25px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+
+/* Menu
+==================================*/
+.menu .bar.bar-header.expanded {
+    transition: all .5s ease-in-out;
+}
+
+
+
+.menu h2 {
+    bottom: 0;
+    font-size: 18px;
+    left: 16px;
+    position: absolute;
+}
+
+.menu .avatar {
+    height: 88px;
+    width: 88px;
+}
+
+.menu.menu-left * {
+  font-weight: 600;
+}
+.menu.menu-left .list .item {
+    background-color: transparent;
+    border-bottom: 1px solid #ddd;
+}
+.menu.menu-left .list .item a.item-content{
+    background-color: transparent;
+}
+.menu.menu-left .list .item:hover{
+    background-color: #EE7D00;
+    color:#fff;
+}
+
+.menu-open .ion-navicon {
+    transform: rotate(-360deg);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.menu-open .ion-navicon:before {
+    content: "\f2ca";
+}
+
+
+/* Login
+==================================*/
+.app-icon {
+  background-color: #fff;
+  background: url('../img/Eve.png') center;
+  background-size: cover;
+  height: 63px;
+  margin: 73px auto;
+  width: 103px;
+}
+.item-md-label {
+  display: block;
+  background: transparent;
+  box-shadow: none;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 30px 0 0; }
+
+.item-md-label .input-label {
+  position: absolute;
+  padding: 5px 0 0;
+  z-index: 2;
+  -webkit-transform: translate3d(0, -30px, 0) scale(1);
+  transform: translate3d(0, -30px, 0) scale(1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  color: #fff;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0; }
+
+.item-md-label input {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  color: #fff;
+  letter-spacing: 0.20rem;
+  padding: 20px 10px;
+  position: relative;
+  z-index: 1; }
+
+.item-md-label .highlight {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  z-index: 1; }
+
+.item-md-label .highlight-light {
+  background: #fff; }
+
+.item-md-label .highlight-stable {
+  background: #f8f8f8; }
+
+.item-md-label .highlight-positive {
+  background: #387ef5; }
+
+.item-md-label .highlight-calm {
+  background: #11c1f3; }
+
+.item-md-label .highlight-balanced {
+  background: #33cd5f; }
+
+.item-md-label .highlight-energized {
+  background: #EE7D00; }
+
+.item-md-label .highlight-assertive {
+  background: #ef473a; }
+
+.item-md-label .highlight-royal {
+  background: #886aea; }
+
+.item-md-label .highlight-dark {
+  background: #444; }
+
+.item-md-label .input-label {
+  letter-spacing: 0.20rem;
+  padding: 0 10px; }
+
+.item-md-label input:focus ~ .input-label, .item-md-label input.used ~ .input-label {
+  color:#EE7D00;
+  font-weight: bold;
+  padding: 0;
+  -webkit-transform: translate3d(0, -60px, 0);
+  transform: translate3d(0, -60px, 0) }
+.item-md-label input:focus ~ .highlight {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }

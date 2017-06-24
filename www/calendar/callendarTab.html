@@ -1,0 +1,67 @@
+<ion-view title="" id="page3" ng-init="init()" class=" ">
+
+  <ion-nav-buttons side="right">
+    <h6 class="light">{{viewTitle}}</h6>
+    <!--button class="button" ng-disabled="true"><strong>{{viewTitle}}</strong></button-->
+    <button class="button"  ng-click="today()">T</button>
+    <button class="button" ng-click="changeMode('month')">M</button>
+    <button class="button" ng-click="changeMode('day')">D</button>
+    <button class="button button-icon ion-more" id="1" ng-click="openPopover($event)">
+        </button>
+        <button class="button button-icon ion-more" id="2" ng-click="openPopover($event)">
+            </button>
+
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="main-content">
+    <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+    <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource" range-changed="reloadSource(startTime, endTime)" event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)" time-selected="onTimeSelected(selectedTime)"
+        step="30"></calendar>
+  </ion-content>
+<script id="calendar/popover1.html" type="text/ng-template">
+      <ion-popover-view>
+        <ion-content>
+          <div class="list ">
+            <p>
+            <button class="button" ng-click="loadEvents(0)">Load Events</button>
+            <ul>
+            <button class="button" ng-repeat="item in calendarAreas" ng-click="loadEvents(item.id)">
+             {{item.name}}
+
+           </button>
+           </ul>
+              <!--button class="button" ng-click="loadEvents(2)">{{calendarAreas[1].name}}</button>
+
+              <button class="button" ng-click="loadEvents(3)">{{calendarAreas[2].name}}</button>
+              <button class="button" ng-click="loadEvents(1)">{{calendarAreas[0].name}}</button>
+
+              <button class="button" ng-click="loadEvents(4)">{{calendarAreas[3].name}}</button-->
+            </p>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+    <script id="calendar/popover2.html" type="text/ng-template">
+          <ion-popover-view>
+            <ion-content>
+              <div class="list ">
+                <p>
+                <ul>
+                <button class="button" ng-repeat="item in states" ng-click="loadArea(item.id)">
+                 {{item.name}}
+
+               </button>
+               </ul>
+                  <!--button class="button" ng-click="loadEvents(2)">{{calendarAreas[1].name}}</button>
+
+                  <button class="button" ng-click="loadEvents(3)">{{calendarAreas[2].name}}</button>
+                  <button class="button" ng-click="loadEvents(1)">{{calendarAreas[0].name}}</button>
+
+                  <button class="button" ng-click="loadEvents(4)">{{calendarAreas[3].name}}</button-->
+                </p>
+              </div>
+            </ion-content>
+          </ion-popover-view>
+        </script>
+  </ion-view>

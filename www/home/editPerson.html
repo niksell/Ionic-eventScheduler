@@ -1,0 +1,41 @@
+<ion-view title="editPerson" id="editPerson" ng-init="initEdit()" class=" ">
+  <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+  <ion-content padding="true" class="has-header">
+
+    <ion-list show-edit="false" show-delete="false" can-swipe="true">
+      <ion-item class="item-icon-left positive   ">
+
+
+
+        <i class="icon ion-person"></i> FirstName :
+        <input name="firstname" id="firstname" type="text" placeholder="" ng-model="info.firstname"></input>
+      </ion-item>
+      <ion-item class="item-icon-left positive">
+        <i class="icon ion-person"></i> lastName :
+        <input name="lastname" id="lastname" type="text" placeholder="" ng-model="info.lastname"></input>
+
+
+
+
+      </ion-item>
+    </ion-list>
+
+
+
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-ios-telephone-outline"></i>
+      <input name="mobile" id="mobile" type="text" placeholder="" ng-model="info.mobile"></input>
+    </ion-item>
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-email"></i>&nbsp;
+      <input name="email" id="email" type="text" placeholder="" ng-model="info.email">
+    </ion-item>
+
+
+    <ion-item class="item-icon-left positive">
+      <i class="icon ion-edit"></i>&nbsp;
+      <input name="description" id="description" type="text" placeholder="" ng-model="info.description">
+    </ion-item>
+    <button id="submit" class=" button button-stable  button-block" ng-click="submit()">submit</button>
+  </ion-content>
+</ion-view>

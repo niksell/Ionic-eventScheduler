@@ -1,0 +1,42 @@
+<ion-view title="events" id="events" ng-init="" class=" ">
+  <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+  <ion-content padding="true" class="has-header ion-content">
+    <ion-list show-edit="false" show-delete="false" can-swipe="true">
+      <ion-item class="energized">
+
+
+          RESERVATION #{{ event[0].id }}
+          <ion-option-button class="button-positive icon ion-edit" ng-click="editEvent(event)"></ion-option-button>
+          <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteEvent(event)"></ion-option-button>
+
+      </ion-item>
+    </ion-list>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-android-calendar"></i>{{event[0].date}}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-clock"></i>{{event[0].Time}}
+    </ion-item>
+    <ion-item class=" item-icon-left energized">
+      <i class="icon ion-android-contact"></i>&nbsp;{{ event[0].seats }}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-location"></i>&nbsp;{{ event[0].area}}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-android-notifications-none"></i>&nbsp;Table {{ event[0].table_id}}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-flag"></i>&nbsp;{{ event[0].flag}}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-ios-telephone-outline"></i> <a ng-href="tel: {{event[0].mobile}}">{{event[0].mobile}}</a>
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-email"></i>&nbsp;{{ event[0].email}}
+    </ion-item>
+    <ion-item class="item-icon-left energized">
+      <i class="icon ion-edit"></i>&nbsp;{{ event[0].description}}
+    </ion-item>
+  </ion-content>
+</ion-view>

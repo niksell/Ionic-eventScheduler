@@ -1,0 +1,21 @@
+<ion-view title="Login"  hide-nav-bar="true" align-title="left">
+  <ion-content class="ion-content">
+    <div class="">
+      <div class="content">
+        <div class="app-icon"></div>
+      </div>
+    </div>
+    <div class="padding">
+      <div class="list">
+        <ion-md-input type="text" placeholder="Email" highlight-color="energized" ng-model="data.email">email</ion-md-input>
+        <ion-md-input type="password" placeholder="Password" highlight-color="energized" ng-model="data.password">password</ion-md-input>
+      </div>
+    </div>
+      <div class="padding">
+        <button id="login-button1" class=" button button-full button-assertive ink " ng-click="login()">Log in</button>
+      </div>
+      <div class="padding">
+        <button id="Guest" class=" button button-full "style="background-color:transparent !important;    color: #ee7d00;" ng-click="guest()">or continue as a  guest</button>
+      </div>
+  </ion-content>
+</ion-view>

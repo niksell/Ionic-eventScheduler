@@ -1,0 +1,42 @@
+<ion-view title="Customers " id="customers" ng-init="" class=" ">
+
+
+  <ion-nav-buttons side="left">
+    <md-button class="button md-icon-button ion-nav-button-right" ng-click="myGoBack()" aria-label="Setting">
+          <i class="ion-arrow-left-c"></i>
+      </md-button>   </ion-nav-buttons>
+      <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+  <ion-content  class="fade-in">
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="Search" ng-model="data.search"  ng-change="searchPer()">
+      </label>
+
+      <button ng-click="res()" class="button ion-android-close input-button button-small"  ng-show="data.search.length">clear
+      </button>
+    </div>
+
+    <ion-list show-delete="false" can-swipe="true"  ng-show="originCu">
+      <ion-item ng-repeat="person in customers" href="" ng-click="">
+        {{person.firstname}}  {{person.lastname}}
+        <ion-option-button class="button-positive icon ion-ios-eye" ng-click="onEventSelectedPerson(person)"></ion-option-button>
+        <ion-option-button class="button-calm icon ion-edit" ng-click="edit(person)"></ion-option-button>
+
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deletePerson(person)"></ion-option-button>
+
+      </ion-item>
+    </ion-list>
+    <ion-list show-delete="false" can-swipe="true" ng-show="SearchCu">
+      <ion-item ng-repeat="person in customersS" href="" ng-click="">
+        {{person.firstname}}  {{person.lastname}}
+        <ion-option-button class="button-positive icon ion-ios-eye" ng-click="onEventSelectedPerson(person)"></ion-option-button>
+        <ion-option-button class="button-calm icon ion-edit" ng-click="edit(person)"></ion-option-button>
+
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deletePerson(person)"></ion-option-button>
+
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll on-infinite="loadMoreCust()" distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
