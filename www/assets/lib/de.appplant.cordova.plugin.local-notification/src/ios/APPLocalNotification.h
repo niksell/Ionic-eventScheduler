@@ -24,7 +24,9 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDVPlugin.h>
 
-@interface APPLocalNotification : CDVPlugin
+@import UserNotifications;
+
+@interface APPLocalNotification : CDVPlugin <UNUserNotificationCenterDelegate>
 
 // Execute all queued events
 - (void) deviceready:(CDVInvokedUrlCommand*)command;

@@ -6,7 +6,7 @@
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
 (function () {
-angular.module('app', ['ionic',
+var eve=angular.module('app', ['ionic',
   'base64',
   'ngCordova',
   'angular-storage',
@@ -28,13 +28,44 @@ angular.module('app', ['ionic',
   'ui.router'
 ])
 
-.config(function($ionicConfigProvider, $sceDelegateProvider){
+eve.run(function($ionicPlatform,$animate) {
+  'use strict';
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
 
 
-  $sceDelegateProvider.resourceUrlWhitelist([ 'self','*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
-
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+    if(device.platform === "iOS") {
+        window.plugin.notification.local.promptForPermission();
+    }
+    window.plugin.notification.local.onschedule = function (id, state, json) {
+            var notification = {
+                id: id,
+                state: state,
+                json: json
+            };
+            $timeout(function() {
+                $rootScope.$broadcast("$cordovaLocalNotification:added", notification);
+            });
+        };
+        document.addEventListener("deviceReady", function() {
+      // Event handling for Local Notifications
+      window.plugin.notification.local.ontrigger  = function(id, state, json) {
+        $rootScope.$broadcast('onNotificationClick', id, state, json);
+      };
+      // You can add more here for oncancel, ontrigger etc.
+    });
+  })
 })
-.config(function($ionicConfigProvider,$stateProvider) {
+eve.config(function($ionicConfigProvider,$stateProvider) {
   $ionicConfigProvider.tabs.position('bottom');
   $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
   $ionicConfigProvider.views.swipeBackEnabled(true);
@@ -42,74 +73,25 @@ $ionicConfigProvider.navBar.alignTitle('center');
 $stateProvider.state('menu',{});
 
 })
-.run(function($ionicPlatform) {
+eve.directive('selectClick', function($ionicPlatform) {
   'use strict';
 
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-/*
-  This directive is used to disable the "drag to open" functionality of the Side-Menu
-  when you are dragging a Slider component.
-*/
-.directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
-    return {
-        restrict: "A",
-        controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-
-            function stopDrag(){
-              $ionicSideMenuDelegate.canDragContent(false);
-            }
-
-            function allowDrag(){
-              $ionicSideMenuDelegate.canDragContent(true);
-            }
-
-            $rootScope.$on('$ionicSlides.slideChangeEnd', allowDrag);
-            $element.on('touchstart', stopDrag);
-            $element.on('touchend', allowDrag);
-            $element.on('mousedown', stopDrag);
-            $element.on('mouseup', allowDrag);
-
-        }]
-    };
-}])
-
-/*
-  This directive is used to open regular and dynamic href links inside of inappbrowser.
-*/
-.directive('hrefInappbrowser', function() {
   return {
     restrict: 'A',
-    replace: false,
-    transclude: false,
-    link: function(scope, element, attrs) {
-      var href = attrs['hrefInappbrowser'];
+    scope: true,
 
-      attrs.$observe('hrefInappbrowser', function(val){
-        href = val;
+    controller: function($scope, $element) {
+
+      $element.bind('click', function() {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
       });
-
-      element.bind('click', function (event) {
-
-        window.open(href, '_system', 'location=yes');
-
-        event.preventDefault();
-        event.stopPropagation();
+      var select = $element.find('select');
+      select.bind('blur', function() {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
       });
     }
-  };
+  }
 });
+
 }());

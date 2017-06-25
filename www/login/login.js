@@ -58,7 +58,8 @@ angular.module('login', ['angular-storage', 'ui.router'])
           localStorage.setItem('mobile', child.mobile);
 
         })*/
-        localStorage.setItem('jwt', token);
+        localStorage.setItem('jwt', response.token);
+        $rootScope.merchant=response.token;
         $rootScope.in = 1;
         $state.go('tabsController.homeTabDefaultPage');
 

@@ -25,7 +25,7 @@ angular.module('app.routes', [])
     views: {
       'tab2': {
         templateUrl: 'calendar/callendarTab.html',
-        controller: 'callendarTabDefaultPageCtrl'
+        controller: 'callendarTabCtrl'
       }
     }
   })
@@ -34,11 +34,7 @@ angular.module('app.routes', [])
     templateUrl: 'home/allevents.html',
     controller: 'homeTabDefaultPageCtrl'
   })
-  .state('profile', {
-    url: '/profile',
-    templateUrl: 'templates/profile.html',
-    controller: 'profileCtrl'
-  })
+
 
   .state('tabsController.exploreTabDefaultPage', {
     url: '/page4',
@@ -64,6 +60,11 @@ angular.module('app.routes', [])
   .state('events', {
     url: '/events',
     templateUrl: 'home/events.html',
+    controller: 'homeTabDefaultPageCtrl'
+  })
+  .state('profile', {
+    url: '/profile',
+    templateUrl: 'home/profile.html',
     controller: 'homeTabDefaultPageCtrl'
   })
 

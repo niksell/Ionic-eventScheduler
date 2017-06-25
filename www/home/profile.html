@@ -1,11 +1,15 @@
-<ion-view title="profile" id="profile" ng-init="" class=" ">
-
-  <ion-content padding="true" class="has-header">
+<ion-view title="profile" id="profile" ng-init="profile()" class=" ">
+  <ion-nav-buttons side="left">
+    <md-button class="button md-icon-button ion-nav-button-right" ng-click="myGoBack()" aria-label="Setting">
+          <i class="ion-arrow-left-c"></i>
+      </md-button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header  ion-content">
     <ion-list show-edit="false" show-delete="false" can-swipe="true">
       <ion-item class="item   ">
 
 
-          <i class="icon ion-person positive">Name :{{ profile[0].firstname }}  {{profile[0].lastname}}</i>
+          <i class="icon ion-person assertive">Name :{{ profile.name }} </i>
           <ion-option-button class="button-positive icon ion-edit" ng-click=""></ion-option-button>
           <ion-option-button class="button-assertive icon ion-trash-a" ng-click=""></ion-option-button>
 
@@ -14,20 +18,16 @@
 
 
 
-    <ion-item class="item-icon-left positive">
-      <i class="icon ion-ios-telephone-outline"></i> <a ng-href="tel: {{event[0].mobile}}">{{profile[0].mobile}}</a>
+    <ion-item class="item-icon-left assertive">
+      <i class="icon ion-ios-telephone-outline"></i> <a ng-href="tel: {{event[0].mobile}}">{{profile.mobile}}</a>
     </ion-item>
-    <ion-item class="item-icon-left positive">
-      <i class="icon ion-email"></i>&nbsp;{{ profile[0].email}}
+    <ion-item class="item-icon-left assertive">
+      <i class="icon ion-email"></i>&nbsp;{{ profile.email}}
     </ion-item>
-    <ion-item class="item-icon-left positive">
-      <i class="icon ion-edit"></i>&nbsp;{{ profile[0].description}}
+
+    <ion-item class="item-icon-left assertive">
+      <i class="icon ion-transgender"></i>&nbsp;{{ profile.gender}}
     </ion-item>
-    <ion-item class="item-icon-left positive">
-      <i class="icon ion-transgender"></i>&nbsp;{{ profile[0].gender}}
-    </ion-item>
-    <ion-item class="item-icon-left positive">
-      <i class="icon ion-calendar"></i>&nbsp;{{ profile[0].birthday}}
-    </ion-item>
+
   </ion-content>
 </ion-view>

@@ -1,11 +1,11 @@
 angular.module('app.controllers', ['angular-storage', 'ui.router'])
 .run(function($rootScope) {
-  $rootScope.merchant='9a400tiku2n7a_03hns8ze';
+  $rootScope.merchant;
   $rootScope.target='https://burgerfreaks.gr';
   $rootScope.urlLogin=[$rootScope.target+'/api/authenticate'];
 
-  $rootScope.urlLoadEvents=[$rootScope.target+'/api/calendar/'+$rootScope.merchant];
-  $rootScope.urlC=[$rootScope.target+'/api/customers/'+$rootScope.merchant];
+  $rootScope.urlLoadEvents=[$rootScope.target+'/api/event'];
+  $rootScope.urlP=[$rootScope.target+'/api/authenticate/user'];
   $rootScope.url = [$rootScope.target+'/api/reservations/all/'+$rootScope.merchant];
   $rootScope.urlT = [$rootScope.target+'/api/event'];
   $rootScope.urlU = [$rootScope.target+'/api/reservations/upcoming/'+$rootScope.merchant];
