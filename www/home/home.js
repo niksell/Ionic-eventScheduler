@@ -75,6 +75,7 @@ angular.module('home', ['angular-storage', 'ui.router'])
       $scope.SearchCu = false;
       $scope.main = true;
       $scope.searchR = false;
+      $scope.today1=[];
       /*$interval($scope.doRefresh, 5000);
       setInterval(function() {
         $scope.doRefresh()
@@ -87,29 +88,21 @@ angular.module('home', ['angular-storage', 'ui.router'])
         $ionicHistory.goBack();
       };
 
-
-
-
-
-
-
-
-
-      $scope.TodayRes = function() {
+      $scope.allevents = function() {
         console.log(1);
         $state.go('allevents');
       }
-      $scope.custom = function() {
+      $scope.profil = function() {
 
         $state.go('profile');
 
       }
-      $scope.allRes = function() {
+      $scope.myevents = function() {
 
-        $state.go('allRes');
+        $state.go('mine');
 
       }
-      $scope.upcomingRes = function() {
+      $scope.calendar = function() {
 
         $state.go('tabsController.callendarTabDefaultPage');
       }
@@ -135,6 +128,40 @@ angular.module('home', ['angular-storage', 'ui.router'])
         });
       };
       $scope.doRefresh = function() {
+        //$scope.today.length=0;
+        $scope.today1.length=0;
+        $http.get($scope.urlT[0])
+          .success(function(response) {
+            console.log(response);
+            if (response.status == 200) {
+              angular.forEach(response.data, function(ch) {
+                angular.forEach(ch.dates, function(seprdate) {
+
+                $scope.today1.push({
+                  title:ch.name,
+                  firstname: ch.firstname,
+                  lastname: ch.lastname,
+                  Time: ch.times,
+                  location:ch.location,
+                  email: ch.email,
+                  description: ch.description,
+                  date: seprdate.date,
+                  date_id:seprdate.id,
+                  id: ch.id
+                });
+              })
+
+              })
+              console.log($scope.today1.length);
+              console.log($scope.today.length);
+              if ($scope.today1.length>$scope.today.length) {
+                $scope.addToday();
+                $scope.today.length=0;
+                $scope.today=$scope.today1;
+              }
+            }
+            console.log($scope.today);
+          })
 
         $scope.$broadcast('scroll.refreshComplete');
 
@@ -160,17 +187,21 @@ angular.module('home', ['angular-storage', 'ui.router'])
               console.log(response);
               if (response.status == 200) {
                 angular.forEach(response.data, function(ch) {
+                  angular.forEach(ch.dates, function(seprdate) {
 
                   $scope.today.push({
+                    title:ch.name,
                     firstname: ch.firstname,
                     lastname: ch.lastname,
                     Time: ch.times,
-
+                    location:ch.location,
                     email: ch.email,
                     description: ch.description,
-                    date: ch.dates,
+                    date: seprdate.date,
+                    date_id:seprdate.id,
                     id: ch.id
                   });
+                })
 
                 })
               }
@@ -181,12 +212,13 @@ angular.module('home', ['angular-storage', 'ui.router'])
 
         }
         $scope.takepart=function () {
-          console.log($scope.event[0].id);
+          console.log($scope.event[0]);
+          console.log($scope.resdata.time);
           $http.post($scope.urlTakePart[0],
              {
               events_id:$scope.event[0].id,
-              event_date_id: $scope.event[0].date.id,
-              event_time_id: $scope.event[0].Time.id
+              event_date_id: $scope.event[0].date_id,
+              event_time_id: $scope.resdata.time.id
             },
             {
               headers: {
@@ -206,16 +238,29 @@ angular.module('home', ['angular-storage', 'ui.router'])
               });
             });
         }
+        $scope.getMine=function () {
+          $http.get($scope.urlTakeMine[0], {
+              headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('jwt')
+              }})
+            .success(function(response) {
+              console.log(response);
+
+            })
+        }
         $scope.onEventSelected = function(events) {
           console.log(events);
+            $scope.event.length=0;
           $scope.event.push({
             firstname: events.firstname,
             lastname: events.lastname,
             machine: events.machine,
-            Time: events.Time[0],
+            Time: events.Time,
             area: events.area,
-
-            date: events.date[0],
+            title:events.title,
+            location:events.location,
+            date: events.date,
+            date_id:events.date_id,
             email: events.email,
             description: events.description,
             id: events.id

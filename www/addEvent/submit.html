@@ -1,0 +1,22 @@
+<ion-view title="Event Details" id="page4" ng-init="init()">
+  <ion-content padding="true" class="has-header ion-content ">
+    <form id="New Reservation Tab-form2" class="list ">
+      <ion-list id="New Reservation Tab-list1" class=" ">
+        <div class="padding">
+
+        <ion-md-input type="text" placeholder="Name" highlight-color="energized" ng-model="resdata.event_name">Name</ion-md-input>
+        <ion-md-input type="text" placeholder="firstname" highlight-color="energized" ng-model="resdata.firstname">First Name</ion-md-input>
+        <ion-md-input type="text" placeholder="lastname" highlight-color="energized" ng-model="resdata.lastname">Last Name</ion-md-input>
+        <ion-md-input type="text" placeholder="location" highlight-color="energized" ng-model="resdata.location">Location</ion-md-input>
+        <ion-md-input type="text" placeholder="email" highlight-color="energized" ng-model="resdata.email">Email</ion-md-input>
+        <ion-md-input type="text" placeholder="description" highlight-color="energized" ng-model="resdata.description">description</ion-md-input>
+        <div class="padding">
+          <button id="take part" class=" button button-full "style="background-color:transparent !important;    color: #ee7d00;" ng-click="Complete()">Complete</button>
+        </div>
+
+
+      </ion-list>
+    </form>
+
+  </ion-content>
+</ion-view>

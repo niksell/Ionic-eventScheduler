@@ -1,36 +1,35 @@
 <ion-view title="events" id="events" ng-init="" class=" ">
   <ion-content padding="true" class="has-header ion-content">
     <ion-list show-edit="false" show-delete="false" can-swipe="true">
-      <ion-item class="energized">
+      <div class="item arrived">
 
 
-          RESERVATION #{{ event[0].id }}
-          <ion-option-button class="button-positive icon ion-edit" ng-click="editEvent(event)"></ion-option-button>
-          <ion-option-button class="button-assertive icon ion-trash-a" ng-click="deleteEvent(event)"></ion-option-button>
+          Event #{{ event[0].title }}
 
-      </ion-item>
+
+      </div>
     </ion-list>
     <ion-item class="item-icon-left energized">
-      <i class="icon ion-android-calendar"></i>{{event[0].date.date}}
+      <i class="icon ion-android-calendar"></i>{{event[0].date}}
     </ion-item>
-    <ion-item class="item-icon-left energized">
-      <i class="icon ion-clock"></i>{{event[0].Time.time}}
-    </ion-item>
+
+      <div class="item padding" >
+        <button class="button button-energized" modal-select="" ng-model="resdata.time" options="event[0].Time"modal-title="Select a time" header-footer-class="bar-energized">
+          Select time:{{resdata.time.time}}
+          <div class="option" multiple>
+            {{option.time}}
+          </div>
+        </button>
+      </div>
+
     <ion-item class=" item-icon-left energized">
-      <i class="icon ion-android-contact"></i>&nbsp;{{ event[0].seats }}
+      <i class="icon ion-android-contact"></i>&nbsp;{{ event[0].firstname }} &nbsp;&nbsp;{{event[0].lastname}}
     </ion-item>
     <ion-item class="item-icon-left energized">
-      <i class="icon ion-location"></i>&nbsp;{{ event[0].area}}
+      <i class="icon ion-location"></i>&nbsp;{{ event[0].location}}
     </ion-item>
-    <ion-item class="item-icon-left energized">
-      <i class="icon ion-android-notifications-none"></i>&nbsp;Table {{ event[0].table_id}}
-    </ion-item>
-    <ion-item class="item-icon-left energized">
-      <i class="icon ion-flag"></i>&nbsp;{{ event[0].flag}}
-    </ion-item>
-    <ion-item class="item-icon-left energized">
-      <i class="icon ion-ios-telephone-outline"></i> <a ng-href="tel: {{event[0].mobile}}">{{event[0].mobile}}</a>
-    </ion-item>
+
+
     <ion-item class="item-icon-left energized">
       <i class="icon ion-email"></i>&nbsp;{{ event[0].email}}
     </ion-item>

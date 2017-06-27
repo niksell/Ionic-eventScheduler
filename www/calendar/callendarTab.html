@@ -12,7 +12,7 @@
   </ion-nav-buttons>
 
   <ion-content scroll="false" class="main-content">
-    <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.newReservationTab" style="display: block;"><i class="icon ion-plus"></i> </button>
+    <button class="button button-energized button-fab button-fab-bottom-right" ui-sref="tabsController.exploreTabDefaultPage" style="display: block;"><i class="icon ion-plus"></i> </button>
     <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource" range-changed="reloadSource(startTime, endTime)" event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)" time-selected="onTimeSelected(selectedTime)"
         step="30"></calendar>
   </ion-content>

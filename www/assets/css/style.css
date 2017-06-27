@@ -34,6 +34,12 @@
     border-left: 0px;
     border-right: 0px;
   }
+  .events {
+    overflow: hidden;
+    margin: 15px 11px;
+border-radius: 26px;
+    background-color: #000;
+}
   span.right{float:right}
   div.item-row{
     display: block;
@@ -62,7 +68,7 @@
 
   .booked{background-color:#3366cc;color:#fff}
   .confirmed{background-color: #109618;color:#fff}
-  .arrived{background-color: #ff9900;color:#fff}
+  .arrived{background-color: #ff9900;color:#000}
   .seated{background-color: #990099;color:#fff}
   .cancelled{background-color: #dc3912;color:#fff}
   .noshow{background-color: #626262;color:#fff}

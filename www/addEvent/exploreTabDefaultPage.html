@@ -1,0 +1,33 @@
+<ion-view title="Create a new Event" id="page4" ng-init="init()">
+  <ion-content padding="true" class="has-header ion-content ">
+    <form id="New Reservation Tab-form2" class="list ">
+      <h2 class="title "  style="color: #fff;" ng-click="criteria = !criteria" >Choose Date and Times </h2>
+      <ion-list id="New Reservation Tab-list1" class=" ">
+        <div class="padding">
+
+        <onezone-datepicker datepicker-object="onezoneDatepicker" multiple>
+          <button class="button  button-outline1 button-assertive show-onezone-datepicker " ng-model="resdata.date" >
+            Select Date : {{onezoneDatepicker.date | date:'dd MMMM yyyy'}}
+          </button>
+        </onezone-datepicker>
+      </div>
+        <div class="item padding">
+          <button multiple="true" class="button button-energized" modal-select="" ng-change="test()"ng-model="resdata.time" options-expression="x in timesss" modal-title="Select a time" header-footer-class="bar-energized">
+            Select time:{{resdata.time}}
+            <div class="option">
+              {{option}}
+            </div>
+          </button>
+        </div>
+        <div class="padding">
+          <button id="take part" class=" button button-full "style="background-color:transparent !important;    color: #ee7d00;" ng-click="submit()">Submit</button>
+        </div>
+
+
+
+
+      </ion-list>
+    </form>
+
+  </ion-content>
+</ion-view>

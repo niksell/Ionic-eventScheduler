@@ -5,13 +5,12 @@ angular.module('app.controllers', ['angular-storage', 'ui.router'])
   $rootScope.urlLogin=[$rootScope.target+'/api/authenticate'];
   $rootScope.urlRegister=[$rootScope.target+'/api/register'];
   $rootScope.urlTakePart=[$rootScope.target+'/api/takepart'];
-
+$rootScope.urlTakeMine=[$rootScope.target+'/api/userevents'];
   $rootScope.urlLoadEvents=[$rootScope.target+'/api/event'];
   $rootScope.urlP=[$rootScope.target+'/api/authenticate/user'];
   $rootScope.url = [$rootScope.target+'/api/reservations/all/'+$rootScope.merchant];
   $rootScope.urlT = [$rootScope.target+'/api/event'];
-  $rootScope.urlU = [$rootScope.target+'/api/reservations/upcoming/'+$rootScope.merchant];
-  $rootScope.urlSettings=[$rootScope.target+'/api/settings/'+$rootScope.merchant+'?company=kuzina&venue=kuzina-athens'];
+  $rootScope.urlcreate=[$rootScope.target+'/api/event/'];
 
   $rootScope.reseInfo = [];
   $rootScope.recom = [];
@@ -20,6 +19,8 @@ angular.module('app.controllers', ['angular-storage', 'ui.router'])
   $rootScope.session;
   $rootScope.AreaId = [];
   $rootScope.date = [];
+  $rootScope.selected_times=[];
+
   $rootScope.time = [];
   $rootScope.test = [];
   $rootScope.test1 = [];

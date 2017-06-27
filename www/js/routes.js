@@ -40,7 +40,7 @@ angular.module('app.routes', [])
     url: '/page4',
     views: {
       'tab3': {
-        templateUrl: 'templates/exploreTabDefaultPage.html',
+        templateUrl: 'addEvent/exploreTabDefaultPage.html',
         controller: 'exploreTabDefaultPageCtrl'
       }
     }
@@ -51,7 +51,11 @@ angular.module('app.routes', [])
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
-
+  .state('submit', {
+    url: '/submit',
+    templateUrl: 'addEvent/submit.html',
+    controller: 'exploreTabDefaultPageCtrl'
+  })
   .state('login', {
     url: '/login',
     templateUrl: 'login/login.html',
@@ -73,7 +77,11 @@ angular.module('app.routes', [])
     templateUrl: 'login/register.html',
     controller: 'loginCtrl'
   })
-
+  .state('mine', {
+    url: '/mine',
+    templateUrl: 'home/mineEv.html',
+    controller: 'homeTabDefaultPageCtrl'
+  })
 $urlRouterProvider.otherwise('/login')
 
 
