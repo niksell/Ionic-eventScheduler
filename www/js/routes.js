@@ -68,10 +68,10 @@ angular.module('app.routes', [])
     controller: 'homeTabDefaultPageCtrl'
   })
 
-  .state('signup', {
-    url: '/signup',
-    templateUrl: 'templates/signup.html',
-    controller: 'signupCtrl'
+  .state('register', {
+    url: '/register',
+    templateUrl: 'login/register.html',
+    controller: 'loginCtrl'
   })
 
 $urlRouterProvider.otherwise('/login')

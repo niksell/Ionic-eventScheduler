@@ -11,10 +11,10 @@
       </ion-item>
     </ion-list>
     <ion-item class="item-icon-left energized">
-      <i class="icon ion-android-calendar"></i>{{event[0].date}}
+      <i class="icon ion-android-calendar"></i>{{event[0].date.date}}
     </ion-item>
     <ion-item class="item-icon-left energized">
-      <i class="icon ion-clock"></i>{{event[0].Time}}
+      <i class="icon ion-clock"></i>{{event[0].Time.time}}
     </ion-item>
     <ion-item class=" item-icon-left energized">
       <i class="icon ion-android-contact"></i>&nbsp;{{ event[0].seats }}
@@ -37,5 +37,8 @@
     <ion-item class="item-icon-left energized">
       <i class="icon ion-edit"></i>&nbsp;{{ event[0].description}}
     </ion-item>
+    <div class="padding">
+      <button id="take part" class=" button button-full "style="background-color:transparent !important;    color: #ee7d00;" ng-click="takepart()">take Part</button>
+    </div>
   </ion-content>
 </ion-view>

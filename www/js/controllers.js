@@ -3,6 +3,8 @@ angular.module('app.controllers', ['angular-storage', 'ui.router'])
   $rootScope.merchant;
   $rootScope.target='https://burgerfreaks.gr';
   $rootScope.urlLogin=[$rootScope.target+'/api/authenticate'];
+  $rootScope.urlRegister=[$rootScope.target+'/api/register'];
+  $rootScope.urlTakePart=[$rootScope.target+'/api/takepart'];
 
   $rootScope.urlLoadEvents=[$rootScope.target+'/api/event'];
   $rootScope.urlP=[$rootScope.target+'/api/authenticate/user'];

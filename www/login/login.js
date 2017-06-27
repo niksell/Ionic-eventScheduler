@@ -2,6 +2,7 @@ angular.module('login', ['angular-storage', 'ui.router'])
 
 .controller('loginCtrl', function($timeout,ionicMaterialInk,$rootScope, $scope, $ionicPopup, $state, $http, $base64, store,$ionicSideMenuDelegate) {
   $scope.data = {};
+  $scope.register={};
   ionicMaterialInk.displayEffect();
   $ionicSideMenuDelegate.canDragContent(false)
   $scope.logout = function() {
@@ -19,8 +20,35 @@ angular.module('login', ['angular-storage', 'ui.router'])
   }
   //$scope.$parent.clearFabs();
 
-  $scope.guest=function () {
-    $state.go('tabsController.homeTabDefaultPage');
+  $scope.register=function () {
+    $state.go('register');
+  }
+  $scope.ConfirmRegister=function () {
+    if ($scope.register.password!=$scope.register.confirm_password) {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Not the same password',
+        template: 'Please check your credentials!'
+      });
+    }else{
+      $http.post($scope.urlRegister[0], {
+          name:$scope.register.Uname,
+          email: $scope.register.email,
+          password: $scope.register.password
+        })
+        .success(function(response) {
+          console.log(response);
+          var alertPopup = $ionicPopup.alert({
+            title: 'Your registration',
+            template: 'Complete succesfully!'
+          });
+          $state.go('login');
+        }).error(function(response) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Login failed!',
+            template: 'Please check your credentials!'
+          });
+        });
+    }
   }
   $scope.login = function() {
     var base64EncodedString = $base64.encode($scope.data.username + ':' + $scope.data.password);

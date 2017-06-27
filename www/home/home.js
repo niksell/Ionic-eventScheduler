@@ -180,16 +180,42 @@ angular.module('home', ['angular-storage', 'ui.router'])
 
 
         }
-        $scope.onEventSelected = function(events) {
+        $scope.takepart=function () {
+          console.log($scope.event[0].id);
+          $http.post($scope.urlTakePart[0],
+             {
+              events_id:$scope.event[0].id,
+              event_date_id: $scope.event[0].date.id,
+              event_time_id: $scope.event[0].Time.id
+            },
+            {
+              headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('jwt')
+              }})
+            .success(function(response) {
+              console.log(response);
+              var alertPopup = $ionicPopup.alert({
+                title: 'You Take part',
+                template: 'succesfully!'
+              });
 
+            }).error(function(response) {
+              var alertPopup = $ionicPopup.alert({
+                title: 'Something Went Wrong !',
+                template: ''
+              });
+            });
+        }
+        $scope.onEventSelected = function(events) {
+          console.log(events);
           $scope.event.push({
             firstname: events.firstname,
             lastname: events.lastname,
             machine: events.machine,
-            Time: events.Time,
+            Time: events.Time[0],
             area: events.area,
 
-            date: events.date,
+            date: events.date[0],
             email: events.email,
             description: events.description,
             id: events.id
